@@ -2,10 +2,14 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nodejs-shark-app
+  labels:                                
+    app: nodejs-shark-app
 spec:
   containers:
   - name: app
     image: docker.io/voicestreams/nodejs-shark-app:latest
+    ports:
+        - containerPort: 8080
     resources:
       limits:
         memory: "500Mi"
