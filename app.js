@@ -6,7 +6,7 @@ const path = __dirname + '/views/';
 const port = 8080;
 
 router.use(function (req,res,next) {
-  console.log('/' + req.method);
+  console.log('/' + req.method + ' called') ;
   next();
 });
 
@@ -22,6 +22,6 @@ app.use(express.static(path));
 app.use('/', router);
 
 app.listen(port, function () {
-  console.log('Whale app started on port 8080!')
+  console.log('Shark app started on port 8080!')
 })
 
