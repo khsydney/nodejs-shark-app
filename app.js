@@ -25,3 +25,7 @@ app.listen(port, function () {
   console.log('Shark app started on port 8080!')
 })
 
+process.on('SIGINT', function() {
+    console.log("Got SIGINT ..Exiting .....");
+    process.exit();
+});
