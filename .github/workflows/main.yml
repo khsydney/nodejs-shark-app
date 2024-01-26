@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Set short git commit SHA 1
-      id: commit
+        id: commit
       uses: prompt/actions-commit-hash@v2
       
     - name: Checkout
