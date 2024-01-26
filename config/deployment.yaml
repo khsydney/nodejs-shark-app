@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nodejs-shark-app
-          image: docker.io/voicestreams/nodejs-shark-app:latest
+          image: 432030471883.dkr.ecr.us-east-1.amazonaws.com/sharky
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
