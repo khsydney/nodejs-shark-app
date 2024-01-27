@@ -15,7 +15,6 @@ const featureFlagKey = 'dark-theme';
 
 const context = {
   "kind": 'user',
-  "membership" : 'vip',
   "key": 'user-key-123abc',
   "name": 'nick'
 };
