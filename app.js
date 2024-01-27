@@ -46,11 +46,11 @@ router.get('/sharks', function(req,res){
       showMessage("Feature flag '" + featureFlagKey + "' is " + flagValue + " for this context");
     if(featureFlagKey)
     {    
-      res.sendFile(path + 'sharks.html');
+      res.sendFile(path + 'sharks2.html');
     }
     else 
     {
-      res.sendFile(path + 'sharks2.html');
+      res.sendFile(path + 'sharks.html');
     }
     })
   })
