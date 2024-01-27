@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [ main ]
+    branches: [ launchdarkly ]
   pull_request:
-    branches: [ main ]
+    branches: [ launchdarkly ]
 
 name: AWS ECR push
 
