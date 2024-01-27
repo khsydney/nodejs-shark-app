@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodejs-shark-app-deployment
   labels:
-     deployment: shark2	
+     deployment: shark	
 spec:
   selector:
       matchLabels:
