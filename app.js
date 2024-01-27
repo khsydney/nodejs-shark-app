@@ -51,8 +51,11 @@ router.get('/sharks', function(req,res){
     {
       res.sendFile(path + 'sharks.html');
     }
-    })
-  })
+    });
+  }).catch(function (error) {
+    showMessage("SDK failed to initialize: " + error);
+    process.exit(1);
+  });
 });
 
 app.use(express.static(path));
