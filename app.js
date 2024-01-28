@@ -15,8 +15,8 @@ const featureFlagKey = 'dark-theme';
 
 const context = {
   "kind": 'user',
-  "key": 'user-key-123abc',
-  "name": 'nick'
+  "key": 'user-key-456abc',
+  "name": 'nick1'
 };
 
 const client = LaunchDarkly.init('sdk-3f2ce257-ecb3-4373-9a48-ac000d67ed86');
@@ -28,7 +28,6 @@ function showMessage(s) {
 }
 
 
-
 router.use(function (req,res,next) {
   console.log('/' + req.method + ' called') ;
   next();
@@ -38,23 +37,23 @@ router.get('/', function(req,res){
   res.sendFile(path + 'index.html');
 });
 
-router.get('/sharks', function(req,res){
+router.get('/sharks', function(req,res) 
+{
   client.waitForInitialization().then(function () {
     showMessage("SDK successfully initialized!");
     client.variation(featureFlagKey, context, false, function (err, flagValue) {
       showMessage("Feature flag '" + featureFlagKey + "' is " + flagValue + " for this context");
-    if(featureFlagKey)
-    {    
+      
+    if (flagValue) {    
       res.sendFile(path + 'sharks2.html');
     }
-    else 
-    {
+    else {
       res.sendFile(path + 'sharks.html');
     }
     });
-  }).catch(function (error) {
-    showMessage("SDK failed to initialize: " + error);
-    process.exit(1);
+    }).catch(function (error) {
+      showMessage("SDK failed to initialize: " + error);
+      process.exit(1);
   });
 });
 
