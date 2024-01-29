@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet" type="text/css">
+    <script crossorigin="anonymous" src="https://unpkg.com/launchdarkly-js-client-sdk@latest"></script>
 </head>
 
 <body>
@@ -16,11 +17,12 @@
             <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>
             </button> <a class="navbar-brand" href="#">Everything Sharks</a>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav mr-auto">
+                <ul class="nav navbar-nav mr-auto" id="menu">
                     <li class="active nav-item"><a href="/" class="nav-link">Home</a>
+<!--                     
                     </li>
                     <li class="nav-item"><a href="/sharks" class="nav-link">Sharks</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -48,6 +50,41 @@
             </div>
         </div>
     </div>
+    <script>
+        const user = {
+            "kind": 'user',
+            "key": 'user-key-456abc',
+            "name": 'nick1'
+        };
+        var client = LDClient.initialize("65ae30271c55351031cbffb4",user);
+        
+
+        client.on("ready", function (){
+            const showFeature = client.variation("shark-menu",false);
+            updateFlagStatus(showFeature);
+        client.on("change", function(settings){
+            if (settings["shark-menu"]){
+                updateFlagStatus(settings["shark-menu"].current);
+            }
+        })
+
+
+        })
+         
+        function updateFlagStatus (falgValue) {
+            if (falgValue) {
+                const shark = document.createElement('li');
+                shark.innerHTML ='<li class="nav-item"><a href="/sharks" class="nav-link">Sharks</a>';
+                const homeloc = document.getElementById("menu")
+                homeloc.appendChild(shark);
+            }
+            else {
+                // shark.innerHTML = '';
+            }
+
+
+        }    
+</script>
 </body>
 
 </html>
