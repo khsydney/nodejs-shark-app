@@ -6,7 +6,7 @@ const path = __dirname + '/views/';
 const port = 8080;
 
 //LaunchDarkly addition
-const LaunchDarkly = require('@launchdarkly/node-server-sdk');
+const LaunchDarkly = require('launchdarkly-node-server-sdk');
 
 // Set featureFlagKey to the feature flag key you want to evaluate.
 const featureFlagKey = 'dark-theme';
