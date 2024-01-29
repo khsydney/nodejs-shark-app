@@ -11,7 +11,7 @@
     "express"
   ],
   "dependencies": {
-    "@launchdarkly/node-server-sdk": "8.0.0",
+    "@launchdarkly/node-server-sdk": "^9.0.6",
     "express": "^4.16.4"
   }
 }
