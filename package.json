@@ -11,7 +11,10 @@
     "express"
   ],
   "dependencies": {
+    "@newrelic/winston-enricher": "^4.0.1",
     "express": "^4.16.4",
-    "newrelic": "^9.0.2"
+    "launchdarkly-node-server-sdk": "^5.13.1",
+    "newrelic": "^11.10.0",
+    "winston": "^3.11.0"
   }
 }
