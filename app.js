@@ -42,8 +42,6 @@ const logger = winston.createLogger({
   )
 });
 
-
-
 function showMessage(s) {
   console.log("*** " + s);
   console.log("");
